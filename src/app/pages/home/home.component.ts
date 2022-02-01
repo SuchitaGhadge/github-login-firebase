@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { GithubService } from 'src/app/services/github.service';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +7,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
+  user: any = null;
+  userName: string = "";
+  error: any = null;
+  constructor(private ref : ChangeDetectorRef, private githubServices: GithubService) { }
 
   ngOnInit(): void {
   }
 
+  handleFindUser(){
+    this.githubServices.getUserDetails(this.userName).subscribe(
+      (user) => {
+        this.user = user;
+        this.error = null;
+        this.ref.detectChanges();
+      },
+      (err) => {
+        this.user = null;
+        this.error = "User not found"
+        this.ref.detectChanges();
+      }
+      
+    )
+  }
 }
