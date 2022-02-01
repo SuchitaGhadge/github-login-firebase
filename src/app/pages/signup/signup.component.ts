@@ -20,7 +20,7 @@ export class SignupComponent implements OnInit {
     const {email, password} = f.form.value;
     this.auth.signup(email, password)
     .then((res) => {
-      this.router.navigateByUrl('./');
+      this.router.navigateByUrl('/');
       this.toastr.success("Signup successful")
     })
     .catch((err) => {

@@ -13,7 +13,7 @@ export class AuthService {
   }
 
   signin(email:string, password:string){
-    return this.auth.createUserWithEmailAndPassword(email, password)
+    return this.auth.signInWithEmailAndPassword(email, password)
     // this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
 

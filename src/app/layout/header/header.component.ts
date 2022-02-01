@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
   async handleSignOut(){
     try{
       const res = await this.auth.signOut();
-      this.router.navigateByUrl("./signin")
+      this.router.navigateByUrl("/signin")
       this.toastr.info("Login again to continue")
       this.email = null;
     }catch(error){
