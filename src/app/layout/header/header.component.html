@@ -2,8 +2,8 @@
     <a [routerLink]=" ['/'] " class="navbar-brand"></a>
     <img src="./../../../assets/img.png" alt="Logo" width="30" height="30">
 
-    <div class="navbar-collapse">
-        <div class="navbar-nav ml-auto">
+    <div class="collapse navbar-collapse">
+        <div class="navbar-nav ms-auto">
             <div *ngIf="email" class="navbar-text float-left">{{ email }}</div>
             <a class="nav-item nav-link" routerLinkActive="active" [routerLink]=" ['/'] ">Home</a>
             <a *ngIf="!email" class="nav-item nav-link" routerLinkActive="active" [routerLink]=" ['/signin'] ">signin</a>
