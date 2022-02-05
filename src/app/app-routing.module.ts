@@ -32,9 +32,13 @@ const routes: Routes = [
     data: { autGuardPipe: redirectUnauthorizedToSignin}
   },
   {
-    path: "**",
-    component: PagenotfoundComponent
-  }
+    path:'repodetails',
+    loadChildren: () => import('./repo-details/repo-details.module').then(mod => mod.RepoDetailsModule)
+  },
+  // {
+  //   path: "**",
+  //   component: PagenotfoundComponent
+  // }
 ];
 
 @NgModule({
