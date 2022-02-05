@@ -7,12 +7,17 @@ import { GithubService } from 'src/app/services/github.service';
   styleUrls: ['./repos.component.css']
 })
 export class ReposComponent implements OnInit {
-  @Input() repoUrl:string | undefined;
+  @Input() user:any;
+  repoUrl:any;
   repos:any = []
-
+  userDetail:any;
   constructor(private githubServices: GithubService, private ref: ChangeDetectorRef) { }
 
   ngOnInit(): void {
+    console.log(this.user)
+    this.repoUrl = this.user.repos_url
+    console.log(this.repoUrl)
+    this.ngOnChanges()
   }
 
   ngOnChanges(): void{
@@ -27,9 +32,17 @@ export class ReposComponent implements OnInit {
           console.log("Error...", error)
         }
       )
-    }else{
-
     }
+  }
+
+  selectRepo(event:any){
+    console.log(event)
+    this.userDetail ={
+      userName : this.user.login,
+      repoName : event
+    }
+    console.log(this.userDetail)
+    localStorage.setItem("userDetails", JSON.stringify(this.userDetail))
   }
 
 }

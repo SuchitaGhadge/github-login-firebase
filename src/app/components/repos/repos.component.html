@@ -1,5 +1,6 @@
 <div *ngFor="let repo of repos" class="list-group">
-    <a [href]="repo.html_url" target="_blank" class="list-group-item list-group-item-action">
-        {{repo.name}}
+    <a routerLink="repodetails/display-data" (click) ="selectRepo(repo.name)" class="list-group-item list-group-item-action">
+        <p>Repo Name: {{repo.name}}</p>
+        <span>Description: {{repo.description}}</span>
     </a>
 </div>

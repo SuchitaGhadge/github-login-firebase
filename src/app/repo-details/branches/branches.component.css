@@ -1,0 +1,9 @@
+a.commit-link{
+    text-decoration: none;
+    display: block;
+}
+
+a.commit-link:hover{
+    text-decoration:underline;
+    display: block;
+}

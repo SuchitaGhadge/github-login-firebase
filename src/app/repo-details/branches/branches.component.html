@@ -1,1 +1,19 @@
-<p>branches works!</p>
+<section class="container">
+    <h4>Branch</h4>
+    <div>
+      <div *ngFor="let branch of branches" class="list-group">
+          <ul class="list-group">
+            <li class="list-group-item text-start">
+              Branch Name: {{ branch.name | uppercase }}
+              <a
+                class="commit-link text-muted"
+                [href]="branch.commit.url"
+                target="_blank"
+                >Commits url</a
+              >
+            </li>
+          </ul>
+        </div>
+    </div>
+  </section>
+  

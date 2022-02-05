@@ -14,6 +14,14 @@ export class GithubService {
   getRepos(repoUrl:string){
     return this.http.get(repoUrl);
   }
+
+  getBranches(username:string, reponame:string){
+    return this.http.get(`https://api.github.com/repos/${username}/${reponame}/branches`)
+  }
+
+  getIssues(username:string, reponame:string){
+    return this.http.get(`https://api.github.com/repos/${username}/${reponame}/issues`)
+  }
 }
 
 

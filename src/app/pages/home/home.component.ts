@@ -17,7 +17,8 @@ export class HomeComponent implements OnInit {
   }
 
   handleFindUser(){
-    this.userName = "SuchitaTest"
+    this.userName = "suchitaghadge"
+    console.log(this.userName)
     this.githubServices.getUserDetails(this.userName).subscribe(
       (user) => {
         this.user = user;
@@ -27,7 +28,7 @@ export class HomeComponent implements OnInit {
       (err) => {
         this.user = null;
         this.error = "User not found"
-        this.ref.detectChanges();
+        // this.ref.detectChanges();
       }
       
     )

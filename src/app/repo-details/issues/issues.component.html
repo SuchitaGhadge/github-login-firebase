@@ -1,1 +1,23 @@
-<p>issues works!</p>
+
+<section class="container">
+    <h4>Issues</h4>
+    <ng-container *ngIf="!issues; else noIssue">
+      <div *ngFor="let issue of issues" class="list-group">
+          <ul class="list-group">
+            <li class="list-group-item text-start">
+              Branch Name: {{ issue.name | uppercase }}
+              <a
+                class="commit-link text-muted"
+                [href]="issues.commit.url"
+                target="_blank"
+                >Commits url</a
+              >
+            </li>
+          </ul>
+      </div>
+    </ng-container>
+    <ng-template #noIssue>
+      <p>No issue found</p>
+    </ng-template>
+  </section>
+  
