@@ -16,7 +16,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 
 // form and httpClient
 import { FormsModule } from "@angular/forms"
-import { HttpClientModule } from "@angular/common/http"
+import { HttpClientModule,  HTTP_INTERCEPTORS } from "@angular/common/http"
 
 // firebase related imports
 import { AngularFireAuthModule } from "@angular/fire/compat/auth"
@@ -27,6 +27,8 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
+// token service
+import { TokenInterceptorService } from './services/token-interceptor.service'
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +51,13 @@ import { ToastrModule } from 'ngx-toastr';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

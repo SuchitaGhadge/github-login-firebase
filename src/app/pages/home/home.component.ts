@@ -13,14 +13,16 @@ export class HomeComponent implements OnInit {
   constructor(private ref : ChangeDetectorRef, private githubServices: GithubService) { }
 
   ngOnInit(): void {
+    this.handleFindUser();
   }
 
   handleFindUser(){
+    this.userName = "SuchitaTest"
     this.githubServices.getUserDetails(this.userName).subscribe(
       (user) => {
         this.user = user;
         this.error = null;
-        this.ref.detectChanges();
+        // this.ref.detectChanges();
       },
       (err) => {
         this.user = null;
