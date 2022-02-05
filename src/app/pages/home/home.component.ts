@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   }
 
   handleFindUser(){
-    this.userName = "suchitaghadge"
+    this.userName = "suchitatest"
     console.log(this.userName)
     this.githubServices.getUserDetails(this.userName).subscribe(
       (user) => {

@@ -1,6 +1,6 @@
 <section class="container">
     <h4>Branch</h4>
-    <div>
+    <ng-container *ngIf="branches; else noBranch">
       <div *ngFor="let branch of branches" class="list-group">
           <ul class="list-group">
             <li class="list-group-item text-start">
@@ -14,6 +14,9 @@
             </li>
           </ul>
         </div>
-    </div>
+    </ng-container>
+    <ng-template #noBranch>
+      <p>No branch found</p>
+    </ng-template>
   </section>
   
