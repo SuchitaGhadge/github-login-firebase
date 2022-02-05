@@ -16,5 +16,36 @@
         <p class="card-text">
             Updated At: {{user.updated_at | date:"short"}}
         </p>
+        <button class="btn btn-outline-dark" (click)="open(content)">Create Repo</button>
     </div>
+    <ng-template #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Add Repo Name</h4>
+          <button type="button btn" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="createRepo(f)" #f="ngForm">
+            <div class="form-group">
+              <label for="dateOfBirth">Date of birth</label>
+              <div class="input-group">
+                <input id="repoName" class="form-control" placeholder="Repo Name" ngModel name="repoName" required>
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary calendar" type="submit">Create</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+        </div>
+      </ng-template>
+      
+      <!-- <button class="btn btn-lg btn-outline-dark" (click)="open(content)">Create Repo</button> -->
+      
+      <hr>
+      
+      <pre>{{ closeResult }}</pre>
 </div>

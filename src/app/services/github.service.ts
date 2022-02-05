@@ -22,6 +22,15 @@ export class GithubService {
   getIssues(username:string, reponame:string){
     return this.http.get(`https://api.github.com/repos/${username}/${reponame}/issues`)
   }
+
+  deleteRepo(username:string, reponame:string){
+    console.log(`https://api.github.com/repos/${username}/${reponame}`)
+    return this.http.delete(`https://api.github.com/repos/${username}/${reponame}`)
+  }
+
+  createRepo(data:any){
+    return this.http.post("https://api.github.com/user/repos", data)
+  }
 }
 
 

@@ -30,6 +30,7 @@ import { ToastrModule } from 'ngx-toastr';
 // token service
 import { TokenInterceptorService } from './services/token-interceptor.service'
 import { RepoDetailsModule } from './repo-details/repo-details.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +52,8 @@ import { RepoDetailsModule } from './repo-details/repo-details.module';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    RepoDetailsModule
+    RepoDetailsModule,
+    NgbModule
   ],
   providers: [
     {

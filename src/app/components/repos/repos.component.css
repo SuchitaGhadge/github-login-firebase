@@ -1,0 +1,16 @@
+.repo{
+    border: 1px solid #c1c1c1;
+    padding: 4px;
+}
+
+a{
+    border: none;
+    background: none;
+}
+
+.btn{
+    text-align: center;
+    height: 40px;
+    padding: 8px 24px;
+    margin: 4px 8px;
+}
